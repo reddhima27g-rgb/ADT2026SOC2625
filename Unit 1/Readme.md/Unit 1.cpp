@@ -1,6 +1,4 @@
-
-
-
+Student Class with Details and Result Calculation:
 
 #include <iostream>
 #include <string>
