@@ -1,4 +1,4 @@
-Student Class with Details and Result Calculation:
+Student Class with Details And Result Calculation:
 
 #include <iostream>
 #include <string>
