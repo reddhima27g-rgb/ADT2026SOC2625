@@ -1,1 +1,77 @@
  
+#include <iostream>
+using namespace std;
+
+class A
+{
+private:
+    int value;
+
+public:
+    static int count;
+
+    A(int v)
+    {
+        value = v;
+        count++;
+    }
+
+    static void showCount()
+    {
+        cout << "Number of objects: " << count << endl;
+    }
+
+    friend void compare(A, class B);
+    friend class Helper;
+};
+
+class B
+{
+private:
+    int value;
+
+public:
+    B(int v)
+    {
+        value = v;
+    }
+
+    friend void compare(A, B);
+};
+
+int A::count = 0;
+
+void compare(A a, B b)
+{
+    if (a.value > b.value)
+        cout << "A has the greater value" << endl;
+    else if (a.value < b.value)
+        cout << "B has the greater value" << endl;
+    else
+        cout << "Both values are equal" << endl;
+}
+
+class Helper
+{
+public:
+    void display(A a)
+    {
+        cout << "Private value of A: "
+             << a.value << endl;
+    }
+};
+
+int main()
+{
+    A a1(50), a2(30);
+    B b1(40);
+
+    A::showCount();
+
+    compare(a1, b1);
+
+    Helper h;
+    h.display(a2);
+
+    return 0;
+}
