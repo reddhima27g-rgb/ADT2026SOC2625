@@ -1,0 +1,128 @@
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Single Inheritance
+class Person
+{
+protected:
+    string name;
+    int age;
+
+public:
+    void getPerson()
+    {
+        cout << "Enter name: ";
+        getline(cin >> ws, name);
+
+        cout << "Enter age: ";
+        cin >> age;
+    }
+
+    void showPerson()
+    {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+    }
+};
+
+class Student : public Person
+{
+private:
+    int rollNo;
+
+public:
+    void getStudent()
+    {
+        getPerson();
+
+        cout << "Enter roll number: ";
+        cin >> rollNo;
+    }
+
+    void showStudent()
+    {
+        showPerson();
+        cout << "Roll Number: " << rollNo << endl;
+    }
+};
+
+// Multilevel Inheritance
+class Vehicle
+{
+protected:
+    string brand;
+
+public:
+    void getVehicle()
+    {
+        cout << "\nEnter vehicle brand: ";
+        cin >> brand;
+    }
+
+    void showVehicle()
+    {
+        cout << "Brand: " << brand << endl;
+    }
+};
+
+class Car : public Vehicle
+{
+protected:
+    int speed;
+
+public:
+    void getCar()
+    {
+        getVehicle();
+
+        cout << "Enter speed: ";
+        cin >> speed;
+    }
+
+    void showCar()
+    {
+        showVehicle();
+        cout << "Speed: " << speed << " km/h" << endl;
+    }
+};
+
+class ElectricCar : public Car
+{
+private:
+    int battery;
+
+public:
+    void getElectricCar()
+    {
+        getCar();
+
+        cout << "Enter battery capacity (kWh): ";
+        cin >> battery;
+    }
+
+    void showElectricCar()
+    {
+        showCar();
+        cout << "Battery Capacity: "
+             << battery << " kWh" << endl;
+    }
+};
+
+int main()
+{
+    Student s;
+
+    cout << "Single Inheritance\n";
+    s.getStudent();
+    s.showStudent();
+
+    ElectricCar e;
+
+    cout << "\nMultilevel Inheritance\n";
+    e.getElectricCar();
+    e.showElectricCar();
+
+    return 0;
+}
