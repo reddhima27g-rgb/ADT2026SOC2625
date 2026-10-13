@@ -1,1 +1,58 @@
- 
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Book
+{
+private:
+    int id;
+    string title;
+    float price;
+
+public:
+    Book(int i, string t, float p)
+    {
+        id = i;
+        title = t;
+        price = p;
+        cout << "Parameterized constructor called"
+             << endl;
+    }
+
+    Book(const Book &b)
+    {
+        id = b.id;
+        title = b.title;
+        price = b.price;
+        cout << "Copy constructor called" << endl;
+    }
+
+    void display()
+    {
+        cout << "Book ID: " << id << endl;
+        cout << "Title: " << title << endl;
+        cout << "Price: " << price << endl;
+    }
+
+    ~Book()
+    {
+        cout << "Destructor called for "
+             << title << endl;
+    }
+};
+
+int main()
+{
+    Book b1(101, "C++ Programming", 450);
+
+    cout << "\nOriginal Book:\n";
+    b1.display();
+
+    Book b2 = b1;
+
+    cout << "\nCopied Book:\n";
+    b2.display();
+
+    return 0;
+}
