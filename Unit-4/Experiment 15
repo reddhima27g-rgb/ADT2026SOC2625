@@ -1,1 +1,46 @@
+#include<iostream>
+using namespace std;
 
+class Shape
+{
+public:
+    virtual void area() = 0;
+
+    void show()
+    {
+        cout << "\nThis is a Shape";
+    }
+};
+
+class Rectangle : public Shape
+{
+    int length, breadth;
+
+public:
+    Rectangle(int l, int b)
+    {
+        this->length = l;
+        this->breadth = b;
+    }
+
+    void area()
+    {
+        cout << "\nArea of Rectangle: "
+             << length * breadth;
+    }
+};
+
+int main()
+{
+    Rectangle r(10, 5);
+
+    Rectangle *ptr = &r;
+
+    ptr->show();
+    ptr->area();
+
+    Shape *s = &r;
+    s->area();
+
+    return 0;
+}
