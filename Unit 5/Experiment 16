@@ -1,1 +1,45 @@
+#include<iostream>
+using namespace std;
 
+template <class T>
+T maximum(T a, T b)
+{
+    return (a > b) ? a : b;
+}
+
+template <class T>
+T minimum(T a, T b)
+{
+    return (a < b) ? a : b;
+}
+
+template <class T>
+void swapValues(T &a, T &b)
+{
+    T temp = a;
+    a = b;
+    b = temp;
+}
+
+int main()
+{
+    int a = 10, b = 20;
+
+    cout << "Integer Maximum: " << maximum(a, b);
+    cout << "\nInteger Minimum: " << minimum(a, b);
+
+    swapValues(a, b);
+
+    cout << "\nAfter Swapping: " << a << " " << b;
+
+    float x = 5.5, y = 2.5;
+
+    cout << "\n\nFloat Maximum: " << maximum(x, y);
+    cout << "\nFloat Minimum: " << minimum(x, y);
+
+    swapValues(x, y);
+
+    cout << "\nAfter Swapping: " << x << " " << y;
+
+    return 0;
+}
