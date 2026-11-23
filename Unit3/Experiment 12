@@ -1,1 +1,63 @@
+#include<iostream>
+using namespace std;
 
+class Student
+{
+public:
+    int rollNo;
+
+    void getRollNo()
+    {
+        cout << "Enter roll number: ";
+        cin >> rollNo;
+    }
+};
+
+class Test : virtual public Student
+{
+public:
+    int marks;
+
+    void getMarks()
+    {
+        cout << "Enter marks: ";
+        cin >> marks;
+    }
+};
+
+class Sports : virtual public Student
+{
+public:
+    int score;
+
+    void getScore()
+    {
+        cout << "Enter sports score: ";
+        cin >> score;
+    }
+};
+
+class Result : public Test, public Sports
+{
+public:
+    void display()
+    {
+        cout << "\nRoll Number: " << rollNo;
+        cout << "\nMarks: " << marks;
+        cout << "\nSports Score: " << score;
+        cout << "\nTotal: " << marks + score;
+    }
+};
+
+int main()
+{
+    Result r;
+
+    r.getRollNo();
+    r.getMarks();
+    r.getScore();
+
+    r.display();
+
+    return 0;
+}
