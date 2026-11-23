@@ -1,1 +1,47 @@
+#include<iostream>
+using namespace std;
 
+template <class T>
+class Calculator
+{
+    T a, b;
+
+public:
+    void getData()
+    {
+        cout << "Enter two values: ";
+        cin >> a >> b;
+    }
+
+    void addition()
+    {
+        cout << "Addition: " << a + b;
+    }
+
+    void largest()
+    {
+        if (a > b)
+            cout << "\nLargest Value: " << a;
+        else
+            cout << "\nLargest Value: " << b;
+    }
+};
+
+int main()
+{
+    cout << "Integer Calculator\n";
+
+    Calculator<int> c1;
+    c1.getData();
+    c1.addition();
+    c1.largest();
+
+    cout << "\n\nFloat Calculator\n";
+
+    Calculator<float> c2;
+    c2.getData();
+    c2.addition();
+    c2.largest();
+
+    return 0;
+}
