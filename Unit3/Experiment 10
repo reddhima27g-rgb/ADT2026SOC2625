@@ -1,1 +1,75 @@
+#include<iostream>
+using namespace std;
 
+class Person
+{
+public:
+    string name;
+
+    void getPerson()
+    {
+        cout << "Enter name: ";
+        cin >> name;
+    }
+};
+
+class Student : public Person
+{
+public:
+    int rollNo;
+
+    void getStudent()
+    {
+        getPerson();
+        cout << "Enter roll number: ";
+        cin >> rollNo;
+    }
+
+    void display()
+    {
+        cout << "\nStudent Details";
+        cout << "\nName: " << name;
+        cout << "\nRoll Number: " << rollNo;
+    }
+};
+
+class Vehicle
+{
+public:
+    void showVehicle()
+    {
+        cout << "\nThis is a Vehicle";
+    }
+};
+
+class Car : public Vehicle
+{
+public:
+    void showCar()
+    {
+        cout << "\nThis is a Car";
+    }
+};
+
+class ElectricCar : public Car
+{
+public:
+    void showElectricCar()
+    {
+        cout << "\nThis is an Electric Car";
+    }
+};
+
+int main()
+{
+    Student s;
+    s.getStudent();
+    s.display();
+
+    ElectricCar e;
+    e.showVehicle();
+    e.showCar();
+    e.showElectricCar();
+
+    return 0;
+}
